@@ -1,7 +1,7 @@
 const multer = require("multer");
 const express = require("express");
 const User = require("../model/userSchema");
-const path = require("path")
+const path = require("path");
 const fileRouter = express.Router();
 
 const storage = multer.diskStorage({
@@ -24,7 +24,7 @@ fileRouter.post("/uploads", upload.single("file"), async (req, res) => {
     });
 
     await data.save();
-
+    console.log("Before file Upload ");
     res.status(200).send("File Saved SuccessFully");
   } catch (err) {
     res.status(400).send("Error Occured ==> " + err);
